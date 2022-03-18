@@ -1,0 +1,22 @@
+version: 1
+
+dn: ou=people,dc=yourdomain,dc=com
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=user1,ou=people,dc=yourdomain,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: User Name
+gidNumber: 10000
+homeDirectory: /home/ldap/user1
+sn: Name
+givenName: User
+uid: user1
+uidNumber: 10000
+displayName: User Name
+gecos: User Name
+loginShell: /bin/bash
+mail: user1@yourdomain.com
+userPassword: encryptedPasswordStringHere
