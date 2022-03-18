@@ -1,0 +1,40 @@
+version: 1
+
+dn: ou=automount,dc=yourdomain,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: automount
+
+dn: ou=auto.direct,ou=automount,dc=yourdomain,dc=com
+objectClass: automountMap
+objectClass: top
+ou: auto.direct
+
+dn: ou=auto.master,ou=automount,dc=yourdomain,dc=com
+objectClass: automountMap
+objectClass: top
+ou: auto.master
+
+dn: cn=/-,ou=auto.master,ou=automount,dc=yourdomain,dc=com
+objectClass: automount
+objectClass: top
+automountInformation: ldap:razah.io:ou=auto.direct,ou=automount,dc=yourdomain,dc=com
+cn: /-
+
+dn: cn=/mnt/storage/radu,ou=auto.direct,ou=automount,dc=yourdomain,dc=com
+objectClass: automount
+objectClass: top
+automountInformation: 192.168.68.11:/radu
+cn: /mnt/network-storage/radu
+
+dn: cn=/mnt/storage/shared,ou=auto.direct,ou=automount,dc=yourdomain,dc=com
+objectClass: automount
+objectClass: top
+automountInformation: 192.168.68.11:/shared
+cn: /mnt/network-storage/shared
+
+dn: cn=/mnt/storage/media,ou=auto.direct,ou=automount,dc=yourdomain,dc=com
+objectClass: automount
+objectClass: top
+automountInformation: 192.168.68.11:/media
+cn: /mnt/network-storage/media
