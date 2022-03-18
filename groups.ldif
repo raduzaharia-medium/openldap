@@ -1,0 +1,11 @@
+version: 1
+
+dn: ou=groups,dc=yourdomain,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=ldap-users,ou=groups,dc=yourdomain,dc=com
+objectClass: posixGroup
+cn: ldap-users
+gidNumber: 10000
+memberUid: user1
