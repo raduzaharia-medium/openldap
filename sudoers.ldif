@@ -1,0 +1,25 @@
+version: 1
+
+dn: ou=sudoers,dc=yourdomain,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: sudoers
+
+dn: cn=user1,ou=sudoers,dc=yourdomain,dc=com
+objectClass: sudoRole
+objectClass: top
+cn: user1
+sudoCommand: ALL
+sudoHost: ALL
+sudoRunAsUser: ALL
+sudoUser: user1
+sudoOrder: 2
+
+dn: cn=defaults,ou=sudoers,dc=yourdomain,dc=com
+objectClass: sudoRole
+objectClass: top
+cn: defaults
+sudoOption: env_reset
+sudoOption: mail_badpass
+sudoOption: secure_path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+sudoOrder: 1
