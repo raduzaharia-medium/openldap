@@ -1,0 +1,3 @@
+/mnt/storage/radu      192.168.68.0/24(rw,all_squash,no_subtree_check,anonuid=1000,anongid=1000)
+/mnt/storage/shared    192.168.68.0/24(rw,all_squash,no_subtree_check,anonuid=1000,anongid=1000)
+/mnt/storage/media     192.168.68.0/24(rw,all_squash,no_subtree_check,anonuid=1000,anongid=1000)
