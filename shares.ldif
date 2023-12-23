@@ -18,7 +18,7 @@ ou: auto.master
 dn: cn=/-,ou=auto.master,ou=automount,dc=yourdomain,dc=com
 objectClass: automount
 objectClass: top
-automountInformation: ldap:razah.io:ou=auto.direct,ou=automount,dc=yourdomain,dc=com
+automountInformation: ldap:yourdomain.com:ou=auto.direct,ou=automount,dc=yourdomain,dc=com
 cn: /-
 
 dn: cn=/mnt/storage/radu,ou=auto.direct,ou=automount,dc=yourdomain,dc=com
