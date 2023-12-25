@@ -1,0 +1,118 @@
+version: 1
+
+dn: dc=home,dc=io
+objectClass: dcObject
+objectClass: organization
+objectClass: top
+dc: home
+o: home
+
+dn: ou=people,dc=home,dc=io
+objectClass: organizationalUnit
+objectClass: top
+ou: people
+
+dn: uid=radu,ou=people,dc=home,dc=io
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: top
+cn: Radu Zaharia
+gidNumber: 10000
+homeDirectory: /home/ldap/radu
+sn: Radu
+uid: radu
+uidNumber: 10000
+loginShell: /bin/bash
+mail: email@something.com
+userPassword:: ===========
+
+dn: uid=alex,ou=people,dc=home,dc=io
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: top
+cn: Alexandra Zaharia
+gidNumber: 10000
+homeDirectory: /home/ldap/alex
+sn: Alexandra
+uid: alex
+uidNumber: 10001
+loginShell: /bin/bash
+
+dn: ou=sudoers,dc=home,dc=io
+objectClass: organizationalUnit
+objectClass: top
+ou: sudoers
+
+dn: cn=radu,ou=sudoers,dc=home,dc=io
+objectClass: sudoRole
+objectClass: top
+cn: radu
+sudoCommand: ALL
+sudoHost: ALL
+sudoOrder: 2
+sudoRunAsUser: ALL
+sudoUser: radu
+
+dn: cn=defaults,ou=sudoers,dc=home,dc=io
+objectClass: sudoRole
+objectClass: top
+cn: defaults
+sudoOption: env_reset
+sudoOption: mail_badpass
+sudoOption: secure_path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
+ bin:/bin:/snap/bin
+sudoOrder: 1
+
+dn: ou=automount,dc=home,dc=io
+objectClass: organizationalUnit
+objectClass: top
+ou: automount
+
+dn: ou=auto.direct,ou=automount,dc=home,dc=io
+objectClass: automountMap
+objectClass: top
+ou: auto.direct
+
+dn: ou=auto.master,ou=automount,dc=home,dc=io
+objectClass: automountMap
+objectClass: top
+ou: auto.master
+
+dn: cn=/-,ou=auto.master,ou=automount,dc=home,dc=io
+objectClass: automount
+objectClass: top
+automountInformation: ldap:192.168.68.113:ou=auto.direct,ou=automount,dc=hom
+ e,dc=io
+cn: /-
+
+dn: cn=/mnt/network-storage/media,ou=auto.direct,ou=automount,dc=home,dc=io
+objectClass: automount
+objectClass: top
+automountInformation: -fstype=cifs,rw,guest ://192.168.68.113/media
+cn: /mnt/network-storage/media
+
+dn: cn=/mnt/network-storage/shared,ou=auto.direct,ou=automount,dc=home,dc=io
+objectClass: automount
+objectClass: top
+automountInformation: -fstype=cifs,rw,guest ://192.168.68.113/shared
+cn: /mnt/network-storage/shared
+
+dn: ou=groups,dc=home,dc=io
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+dn: cn=ldap-users,ou=groups,dc=home,dc=io
+objectClass: posixGroup
+objectClass: top
+cn: ldap-users
+gidNumber: 10000
+memberUid: 10000
+memberUid: 10001
+
