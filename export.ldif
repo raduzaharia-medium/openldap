@@ -1,5 +1,6 @@
 version: 1
 
+# Tree root and domain definition
 dn: dc=home,dc=io
 objectClass: dcObject
 objectClass: organization
@@ -7,11 +8,13 @@ objectClass: top
 dc: home
 o: home
 
+# User root definition
 dn: ou=people,dc=home,dc=io
 objectClass: organizationalUnit
 objectClass: top
 ou: people
 
+# User Radu definition
 dn: uid=radu,ou=people,dc=home,dc=io
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
@@ -29,6 +32,7 @@ loginShell: /bin/bash
 mail: email@something.com
 userPassword:: ===========
 
+# User Alexandra definition
 dn: uid=alex,ou=people,dc=home,dc=io
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
@@ -44,11 +48,13 @@ uid: alex
 uidNumber: 10001
 loginShell: /bin/bash
 
+# Sudoers root definition
 dn: ou=sudoers,dc=home,dc=io
 objectClass: organizationalUnit
 objectClass: top
 ou: sudoers
 
+# Sudoer Radu definition
 dn: cn=radu,ou=sudoers,dc=home,dc=io
 objectClass: sudoRole
 objectClass: top
@@ -59,6 +65,7 @@ sudoOrder: 2
 sudoRunAsUser: ALL
 sudoUser: radu
 
+# Default sudo rules
 dn: cn=defaults,ou=sudoers,dc=home,dc=io
 objectClass: sudoRole
 objectClass: top
@@ -69,21 +76,25 @@ sudoOption: secure_path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
  bin:/bin:/snap/bin
 sudoOrder: 1
 
+# AutoFS root definition
 dn: ou=automount,dc=home,dc=io
 objectClass: organizationalUnit
 objectClass: top
 ou: automount
 
+# AutoFS direct mount map root definition
 dn: ou=auto.direct,ou=automount,dc=home,dc=io
 objectClass: automountMap
 objectClass: top
 ou: auto.direct
 
+# AutoFS master mount map root definition
 dn: ou=auto.master,ou=automount,dc=home,dc=io
 objectClass: automountMap
 objectClass: top
 ou: auto.master
 
+# AutoFS master mount map definition
 dn: cn=/-,ou=auto.master,ou=automount,dc=home,dc=io
 objectClass: automount
 objectClass: top
@@ -91,23 +102,27 @@ automountInformation: ldap:192.168.68.113:ou=auto.direct,ou=automount,dc=hom
  e,dc=io
 cn: /-
 
+# AutoFS media share mount definition
 dn: cn=/mnt/network-storage/media,ou=auto.direct,ou=automount,dc=home,dc=io
 objectClass: automount
 objectClass: top
 automountInformation: -fstype=cifs,rw,guest ://192.168.68.113/media
 cn: /mnt/network-storage/media
 
+# AutoFS shared mount definition
 dn: cn=/mnt/network-storage/shared,ou=auto.direct,ou=automount,dc=home,dc=io
 objectClass: automount
 objectClass: top
 automountInformation: -fstype=cifs,rw,guest ://192.168.68.113/shared
 cn: /mnt/network-storage/shared
 
+# AutoFS groups root definition
 dn: ou=groups,dc=home,dc=io
 objectClass: organizationalUnit
 objectClass: top
 ou: groups
 
+# AutoFS ldap-users group definition
 dn: cn=ldap-users,ou=groups,dc=home,dc=io
 objectClass: posixGroup
 objectClass: top
