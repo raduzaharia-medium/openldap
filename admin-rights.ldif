@@ -1,0 +1,6 @@
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+add: olcAccess
+olcAccess: {0}to *
+  by dn.base="cn=admin,dc=home,dc=io" write
+  by * none
